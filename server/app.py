@@ -50,7 +50,7 @@ def get_bakery(id):
         "id": bakery.id,
         "name": bakery.name,
         "baked_goods": baked_goods
-        # Include other bakery attributes as needed
+        
     }
 
     return jsonify(bakery_data)
@@ -66,7 +66,6 @@ def get_baked_goods_by_price():
             "id": baked_good.id,
             "name": baked_good.name,
             "price": baked_good.price,
-            # Include other baked good attributes as needed
         }
         baked_goods_data.append(baked_good_data)
 
@@ -78,14 +77,14 @@ def get_most_expensive_baked_good():
     most_expensive_baked_good = BakedGood.query.order_by(BakedGood.price.desc()).first()
 
     if most_expensive_baked_good is None:
-        # Handle the case when no baked goods are available
+       
         return jsonify({"message": "No baked goods found."}), 404
 
     baked_good_data = {
         "id": most_expensive_baked_good.id,
         "name": most_expensive_baked_good.name,
         "price": most_expensive_baked_good.price,
-        # Include other baked good attributes as needed
+       
     }
 
     return jsonify(baked_good_data)
